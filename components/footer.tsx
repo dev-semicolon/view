@@ -124,7 +124,7 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
           <div className="mb-4 md:mb-6 text-xs md:text-sm text-gray-500 leading-relaxed">
             <div className="flex flex-col space-y-1 md:space-y-2">
-              <span>상호명 | 주식회사 뷰 커뮤니케이션 &emsp; 대표자 | 정덕근 <br/> 사업자등록번호 | 235-81-03562&emsp;사업장소재지 | 경기도 광주시 <br className="block md:hidden"/>태전중앙 1길 5, 1동 613호(태전동)</span>
+              <span>상호명 | 주식회사 뷰 커뮤니케이션 &emsp; 대표자 | 정현근 <br/> 사업자등록번호 | 235-81-03562&emsp;사업장소재지 | 서울특별시 역삼동 <br className="block md:hidden"/>테헤란로 80길 7, 7층</span>
               <span>연락처 | 010-2747-7314 &emsp; 이메일 | clay4245@naver.com</span>
             </div>
           </div>

@@ -69,8 +69,8 @@ export function ContactSection() {
     {
       icon: MapPin,
       title: "본사",
-      content: "경기도 광주시",
-      description: "태전중앙 1길 5, 1동 613호(태전동)",
+      content: "서울특별시 역삼동",
+      description: "테헤란로 80길 7, 7층",
       gradient: "bg-gradient-cyan-blue",
     },
   ]

@@ -93,7 +93,7 @@ export default function RootLayout({
       addressCountry: 'KR',
       addressRegion: '경기도',
       addressLocality: '광주시',
-      streetAddress: '태전중앙 1길 5, 1동 613호(태전동)',
+      streetAddress: '테헤란로 80길 7, 7층',
     },
     contactPoint: {
       '@type': 'ContactPoint',
@@ -105,7 +105,7 @@ export default function RootLayout({
     foundingDate: '2024',
     founder: {
       '@type': 'Person',
-      name: '정덕근',
+      name: '정현근',
     },
     sameAs: [
       'https://www.facebook.com/infoplanet',
