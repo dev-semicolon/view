@@ -10,7 +10,7 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://info-planet.co.kr'),
+  metadataBase: new URL('https://view-communication.co.kr'),
   title: {
     default: "뷰 커뮤니케이션 - 리워드 광고 마케팅 플랫폼",
     template: "%s | 뷰 커뮤니케이션"
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "로열티 프로그램", "리워드 서베이", "성과형 광고", "모바일 광고", "온라인 마케팅",
     "광고 솔루션", "디지털 마케팅", "퍼포먼스 마케팅", "CPA 광고", "브랜드 마케팅"
   ],
-  authors: [{ name: "InfoPlanet", url: "https://info-planet.co.kr" }],
+  authors: [{ name: "InfoPlanet", url: "https://view-communication.co.kr" }],
   creator: "InfoPlanet",
   publisher: "InfoPlanet",
   formatDetection: {
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    url: "https://info-planet.co.kr",
+    url: "https://view-communication.co.kr",
     siteName: "뷰 커뮤니케이션",
     title: "뷰 커뮤니케이션 - 리워드 광고 마케팅 플랫폼",
     description: "브랜드와 소비자를 연결하는 미션 기반 리워드 광고 솔루션. 성과를 만드는 광고, 수익을 만드는 플랫폼.",
@@ -85,8 +85,8 @@ export default function RootLayout({
     '@type': 'Organization',
     name: '주식회사 뷰 커뮤니케이션',
     alternateName: 'InfoPlanet',
-    url: 'https://info-planet.co.kr',
-    logo: 'https://info-planet.co.kr/logos/logo.png',
+    url: 'https://view-communication.co.kr',
+    logo: 'https://view-communication.co.kr/logos/logo.png',
     description: '브랜드와 소비자를 연결하는 미션 기반 리워드 광고 솔루션',
     address: {
       '@type': 'PostalAddress',
