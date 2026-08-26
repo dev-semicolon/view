@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ExternalLink } from "lucide-react"
 
 export function HeroSection() {
   return (
@@ -28,13 +28,27 @@ export function HeroSection() {
             브랜드와 소비자를 연결하는 미션 기반 리워드 광고 솔루션.
             </p>
 
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Button
+                asChild
                 size="lg"
                 className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white border-0 px-6 py-5 md:px-12 md:py-7 text-base md:text-lg font-semibold shadow-2xl shadow-indigo-500/30 transition-all duration-300 hover:scale-105"
               >
-                프로젝트 문의하기
-                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                <a href="#contact">
+                  프로젝트 문의하기
+                  <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                </a>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-gray-300 bg-white/80 px-6 py-5 text-base font-semibold text-gray-900 shadow-lg transition-all duration-300 hover:border-indigo-300 hover:bg-white md:px-10 md:py-7 md:text-lg"
+              >
+                <a href="https://www.selling-planet.com/services?utm_source=viewcommunication&utm_medium=owned_referral&utm_campaign=official_site&utm_content=hero">
+                  광고 상품 직접 비교
+                  <ExternalLink className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                </a>
               </Button>
             </div>
           </div>
