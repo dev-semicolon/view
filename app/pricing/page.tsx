@@ -262,8 +262,8 @@ export default function PricingPage() {
                   </div>
                   
                   <div className="absolute -bottom-6 -right-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 shadow-lg">
-                    <div className="text-2xl font-bold text-white">99.9%</div>
-                    <div className="text-sm text-white/70">SLA 보장</div>
+                    <div className="text-2xl font-bold text-white">맞춤형</div>
+                    <div className="text-sm text-white/70">운영 조건 협의</div>
                   </div>
                 </div>
               </div>

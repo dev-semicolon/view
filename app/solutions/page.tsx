@@ -156,7 +156,7 @@ export default function SolutionsPage() {
                   <h2 className="text-3xl font-bold mb-6 text-white">맞춤형 솔루션 접근 방식</h2>
                   <p className="text-white/70 mb-6">
                     뷰 커뮤니케이션은 귀사의 비즈니스 목표와 요구사항을 깊이 이해하고 최적의 리워드 마케팅 전략을 설계합니다.
-                    데이터 기반 접근 방식으로 지속적인 최적화와 성과 향상을 보장합니다.
+                    데이터 기반 접근 방식으로 지속적인 최적화와 성과 향상을 지원합니다.
                   </p>
                   
                   <div className="space-y-4">

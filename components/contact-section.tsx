@@ -7,8 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { Mail, Phone, MapPin, ArrowRight, CheckCircle, Building, Clock, FileText } from "lucide-react"
-import { useToast } from "@/hooks/use-toast"
+import { Mail, MapPin, ArrowRight, Building, Clock, FileText } from "lucide-react"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -19,29 +18,19 @@ export function ContactSection() {
     message: "",
     phone: "",
   })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const { toast } = useToast()
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
+    const subject = `[뷰 커뮤니케이션 기업 문의] ${formData.company} - ${formData.name}`
+    const body = [
+      `회사명: ${formData.company}`,
+      `이름/직책: ${formData.name} / ${formData.position}`,
+      `이메일: ${formData.email}`,
+      `연락처: ${formData.phone || "미입력"}`,
+      "",
+      formData.message,
+    ].join("\n")
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      toast({
-        title: "문의가 성공적으로 전송되었습니다!",
-        description: "24시간 이내에 답변 드리겠습니다.",
-      })
-      setFormData({
-        name: "",
-        position: "",
-        email: "",
-        company: "",
-        message: "",
-        phone: "",
-      })
-    }, 1500)
+    window.location.href = `mailto:contact@info-planet.co.kr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -90,8 +79,8 @@ export function ContactSection() {
     },
     {
       icon: Clock,
-      title: "우선 기술 지원",
-      description: "24시간 연중무휴 기술 지원 및 1시간 이내 응답을 보장합니다.",
+      title: "운영 문의 지원",
+      description: "접수 내용을 확인한 뒤 필요한 운영·기술 지원 범위를 안내합니다.",
       gradient: "bg-gradient-cyan-blue",
     },
   ]
@@ -268,23 +257,16 @@ export function ContactSection() {
               <Button
                 type="submit"
                 size="lg"
-                disabled={isSubmitting}
                 className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white border-0 h-12 md:h-14 text-sm md:text-base font-semibold shadow-xl shadow-indigo-500/30 hover:shadow-indigo-500/50 transition-all duration-300 hover:scale-[1.02] rounded-lg md:rounded-xl"
               >
-                {isSubmitting ? (
-                  "전송 중..."
-                ) : (
-                  <>
-                    문의하기
-                    <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-                  </>
-                )}
+                메일로 문의하기
+                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
               </Button>
             </form>
 
             <div className="mt-4 md:mt-6 p-4 md:p-5 bg-gray-50 rounded-lg md:rounded-xl border border-gray-200">
               <p className="text-xs md:text-sm text-gray-500 text-center">
-                제출된 정보는 뷰 커뮤니케이션의 개인정보 처리방침에 따라 안전하게 보호됩니다
+                버튼을 누르면 기본 메일 앱이 열립니다. 내용을 확인한 뒤 직접 보내 주세요.
               </p>
             </div>
           </div>

@@ -504,8 +504,8 @@ export function FeaturesSection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
             {[
               {
-                title: "투명한 수익 공유",
-                desc: "실제 수익의 80-90%를 투명하게 공유하는 업계 최고 수준의 수익 모델",
+                title: "투명한 수익 구조",
+                desc: "정산 기준과 수익 구조를 계약 단계에서 명확하게 안내합니다",
                 icon: "💰"
               },
               {
@@ -515,7 +515,7 @@ export function FeaturesSection() {
               },
               {
                 title: "전담 지원팀",
-                desc: "24시간 기술 지원과 전담 계정 관리자가 함께합니다",
+                desc: "기술 문의와 운영 지원을 담당자가 함께 조율합니다",
                 icon: "👥"
               }
             ].map((item, index) => (
