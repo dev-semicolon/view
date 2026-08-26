@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     "로열티 프로그램", "리워드 서베이", "성과형 광고", "모바일 광고", "온라인 마케팅",
     "광고 솔루션", "디지털 마케팅", "퍼포먼스 마케팅", "CPA 광고", "브랜드 마케팅"
   ],
-  authors: [{ name: "InfoPlanet", url: "https://view-communication.co.kr" }],
-  creator: "InfoPlanet",
-  publisher: "InfoPlanet",
+  authors: [{ name: "INFOPLANET", url: "https://www.info-planet.co.kr" }],
+  creator: "INFOPLANET",
+  publisher: "INFOPLANET",
   formatDetection: {
     email: false,
     address: false,
@@ -83,8 +83,8 @@ export default function RootLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: '주식회사 뷰 커뮤니케이션',
-    alternateName: 'InfoPlanet',
+    name: '주식회사 인포플래닛',
+    alternateName: '뷰 커뮤니케이션',
     url: 'https://view-communication.co.kr',
     logo: 'https://view-communication.co.kr/logos/logo.png',
     description: '브랜드와 소비자를 연결하는 미션 기반 리워드 광고 솔루션',
@@ -93,25 +93,15 @@ export default function RootLayout({
       addressCountry: 'KR',
       addressRegion: '경기도',
       addressLocality: '광주시',
-      streetAddress: '테헤란로 80길 7, 7층',
+      streetAddress: '태전중앙1길 5, 1동 613호(태전동)',
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+82-10-2747-7314',
-      email: 'clay4245@naver.com',
+      telephone: '+82-10-7746-7314',
+      email: 'contact@info-planet.co.kr',
       contactType: 'Customer Service',
       availableLanguage: ['Korean'],
     },
-    foundingDate: '2024',
-    founder: {
-      '@type': 'Person',
-      name: '정현근',
-    },
-    sameAs: [
-      'https://www.facebook.com/infoplanet',
-      'https://www.instagram.com/infoplanet',
-      'https://twitter.com/infoplanet',
-    ],
   }
 
   return (

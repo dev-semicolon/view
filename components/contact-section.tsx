@@ -55,7 +55,7 @@ export function ContactSection() {
     {
       icon: Mail,
       title: "이메일",
-      content: "clay4245@naver.com",
+      content: "contact@info-planet.co.kr",
       description: "기업 문의 전용",
       gradient: "bg-gradient-blue-purple",
     },
@@ -69,8 +69,8 @@ export function ContactSection() {
     {
       icon: MapPin,
       title: "본사",
-      content: "서울특별시 역삼동",
-      description: "테헤란로 80길 7, 7층",
+      content: "경기도 광주시",
+      description: "태전중앙1길 5, 1동 613호(태전동)",
       gradient: "bg-gradient-cyan-blue",
     },
   ]
