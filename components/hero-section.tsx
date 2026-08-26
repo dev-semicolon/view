@@ -3,7 +3,7 @@ import { ArrowRight, ExternalLink } from "lucide-react"
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100vh-80px)] md:h-screen flex flex-col justify-between overflow-hidden pt-24 md:pt-20 pb-8">      
+    <section className="relative md:min-h-[calc(100vh-80px)] md:h-screen md:flex md:flex-col md:justify-between overflow-hidden pt-24 md:pt-20 pb-12 md:pb-8">
       {/* Shader Art - Background Layer */}
       <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[45%] h-[600px] pointer-events-none z-0">
         {/* Animated Gradient Orbs */}
@@ -13,10 +13,10 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex-1 flex items-center md:items-end w-full md:pb-20">
+      <div className="relative z-10 w-full md:flex-1 md:flex md:items-end md:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           {/* Text Content */}
-          <div className="text-left pb-8 md:-ml-8 lg:-ml-16 max-w-5xl lg:max-w-6xl">
+          <div className="text-left pb-8 max-w-5xl lg:max-w-6xl">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
             성과를 만드는 광고, 수익을 만드는 플랫폼,<br className="hidden sm:block" />
               <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">

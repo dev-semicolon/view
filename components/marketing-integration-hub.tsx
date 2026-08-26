@@ -109,10 +109,10 @@ export function MarketingIntegrationHub() {
       {/* Caption */}
       <div className="text-center mt-4 md:mt-6 px-4">
         <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-1 md:mb-2">
-          모든 마케팅 채널을 <span className="text-indigo-600">하나로 통합</span>
+          캠페인에 맞는 채널을 <span className="text-indigo-600">함께 검토</span>
         </h3>
         <p className="text-sm md:text-base text-gray-600">
-          뷰 커뮤니케이션이 주요 플랫폼과 실시간으로 연결되어 통합 관리를 제공합니다
+          실제 연동 가능 여부와 운영 조건은 문의 내용을 확인한 뒤 안내합니다
         </p>
       </div>
     </div>

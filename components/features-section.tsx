@@ -1,133 +1,16 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { MarketingIntegrationHub } from "./marketing-integration-hub"
 
-// 카운터 애니메이션 Hook
-function useCountUp(end: number, duration: number = 2000, isVisible: boolean) {
-  const [count, setCount] = useState(0)
-  
-  useEffect(() => {
-    if (!isVisible) return
-    
-    let startTime: number | null = null
-    const startValue = 0
-    
-    const animate = (currentTime: number) => {
-      if (startTime === null) startTime = currentTime
-      const progress = Math.min((currentTime - startTime) / duration, 1)
-      
-      // easeOutQuart easing function
-      const easeProgress = 1 - Math.pow(1 - progress, 4)
-      setCount(Math.floor(startValue + (end - startValue) * easeProgress))
-      
-      if (progress < 1) {
-        requestAnimationFrame(animate)
-      }
-    }
-    
-    requestAnimationFrame(animate)
-  }, [end, duration, isVisible])
-  
-  return count
-}
-
-// 통계 카운터 컴포넌트
-function StatCounter({ number, label, desc }: { number: string, label: string, desc: string }) {
-  const [isVisible, setIsVisible] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-  
-  // 숫자 파싱 (콤마 제거 후 파싱)
-  const parseNumber = (str: string) => {
-    const cleaned = str.replace(/,/g, '') // 콤마 제거
-    const match = cleaned.match(/[\d.]+/)
-    return match ? parseFloat(match[0]) : 0
-  }
-  
-  const targetNumber = parseNumber(number)
-  const currentCount = useCountUp(targetNumber, 2000, isVisible)
-  
-  // Intersection Observer
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isVisible) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.3 }
-    )
-    
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-    
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current)
-      }
-    }
-  }, [isVisible])
-  
-  // 숫자 포맷팅
-  const formatNumber = () => {
-    if (number.includes("-")) {
-      // 범위 표시 (80-90%)
-      return `${Math.floor(currentCount)}-${Math.floor(currentCount + 10)}%`
-    } else if (number.includes("+")) {
-      // 천 단위 콤마와 + 표시
-      return `${Math.floor(currentCount).toLocaleString()}+`
-    } else if (number.includes("%")) {
-      // 소수점 한 자리까지 표시
-      return `${currentCount.toFixed(1)}%`
-    }
-    return currentCount.toFixed(1)
-  }
-  
-  return (
-    <div ref={ref} className="text-center bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 border border-gray-200 hover:border-indigo-300 hover:shadow-xl transition-all group">
-      <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-2 md:mb-3 group-hover:scale-110 transition-transform">
-        {isVisible ? formatNumber() : number.replace(/[\d.,]/g, '0')}
-      </div>
-      <div className="text-base md:text-lg font-semibold text-gray-800 mb-1">{label}</div>
-      <div className="text-xs md:text-sm text-gray-500">{desc}</div>
-    </div>
-  )
-}
-
 export function FeaturesSection() {
-  const [isPartnersVisible, setIsPartnersVisible] = useState(false)
   const [isServicesVisible, setIsServicesVisible] = useState(false)
   const [isWhyInfoplanetVisible, setIsWhyInfoplanetVisible] = useState(false)
-  const partnersRef = useRef<HTMLDivElement>(null)
   const servicesRef = useRef<HTMLDivElement>(null)
   const whyInfoplanetRef = useRef<HTMLDivElement>(null)
-
-  // 파트너 로고 Intersection Observer
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !isPartnersVisible) {
-          setIsPartnersVisible(true)
-        }
-      },
-      { threshold: 0.2 }
-    )
-    
-    if (partnersRef.current) {
-      observer.observe(partnersRef.current)
-    }
-    
-    return () => {
-      if (partnersRef.current) {
-        observer.unobserve(partnersRef.current)
-      }
-    }
-  }, [isPartnersVisible])
 
   // 서비스 카드 Intersection Observer
   useEffect(() => {
@@ -188,10 +71,10 @@ export function FeaturesSection() {
             </p>
             
             <div className="flex items-center justify-center gap-2 md:gap-4 mb-3 md:mb-4">
-              <span className="text-sm md:text-base text-gray-500">2,000+ 브랜드가 선택한</span>
+              <span className="text-sm md:text-base text-gray-500">사업자와 매체사를 연결하는</span>
             </div>
             <div className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              검증된 파트너
+              리워드 광고 운영 파트너
             </div>
             
             <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-200">
@@ -208,80 +91,26 @@ export function FeaturesSection() {
           <MarketingIntegrationHub />
         </div>
 
-        {/* 제휴 파트너사 - 컴팩트한 원형 스타일 */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 text-gray-900">
-            함께 성장하는 <span className="text-indigo-600">파트너</span>
+            필요한 범위부터 <span className="text-indigo-600">확인합니다</span>
           </h2>
           <p className="text-sm md:text-base text-gray-600 mb-8 md:mb-10 max-w-3xl mx-auto px-4">
-            카카오뱅크, 배달의민족, 토스 등 대형 플랫폼과<br className="hidden sm:block" />
-            2,000개 이상의 브랜드가 뷰 커뮤니케이션과 함께 성장하고 있습니다.
+            캠페인 목적, 대상 행동, 운영 기간과 예산을 확인한 뒤<br className="hidden sm:block" />
+            진행 가능한 리워드 광고 방식과 조건을 안내합니다.
           </p>
-
-          {/* 겹쳐진 원형 로고들 */}
-          <div 
-            ref={partnersRef}
-            className={`flex items-center justify-center mb-12 md:mb-20 overflow-x-auto px-4 transition-all duration-1000 ${
-              isPartnersVisible 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-10'
-            }`}
-          >
-            <div className="relative flex items-center min-w-max" style={{ height: '60px', minHeight: '60px' }}>
-              {[
-                "/partners/네이버.png",
-                "/partners/구글.png",
-                "/partners/카카오톡.png",
-                "/partners/인스타그램.png",
-                "/partners/페이스북.png",
-                "/partners/틱톡.png",
-                "/partners/배달의민족.png",
-                "/partners/OK캐쉬백.png",
-                "/partners/신한.png",
-                "/partners/에이블리.png",
-                "/partners/카카오뱅크.png",
-                "/partners/토스.png",
-                "/partners/페이코.png",
-                "/partners/하나머니.png"
-              ].map((imagePath, index) => (
-                <div
-                  key={index}
-                  className={`group relative w-12 h-12 md:w-16 md:h-16 bg-white rounded-full border-2 border-gray-200 hover:border-indigo-400 flex items-center justify-center shadow-md hover:shadow-xl transition-all duration-500 hover:scale-125 hover:z-50 p-1.5 md:p-2 ${
-                    isPartnersVisible 
-                      ? 'opacity-100 translate-x-0' 
-                      : 'opacity-0 -translate-x-8'
-                  }`}
-                  style={{ 
-                    marginLeft: index === 0 ? '0' : '-8px',
-                    zIndex: 15 - index,
-                    transitionDelay: isPartnersVisible ? `${index * 50}ms` : '0ms'
-                  }}
-                >
-                  <Image
-                    src={imagePath}
-                    alt={`Partner ${index + 1}`}
-                    width={48}
-                    height={48}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              ))}
-              {/* "+More" 인디케이터 */}
-              <div 
-                className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg text-white font-bold text-xs transition-all duration-500 ${
-                  isPartnersVisible 
-                    ? 'opacity-100 scale-100' 
-                    : 'opacity-0 scale-50'
-                }`}
-                style={{ 
-                  marginLeft: '-8px', 
-                  zIndex: 0,
-                  transitionDelay: isPartnersVisible ? '700ms' : '0ms'
-                }}
-              >
-                +14
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto text-left">
+            {[
+              ["01", "목적 확인", "유입, 참여, 전환 등 필요한 행동을 정리합니다."],
+              ["02", "운영 조건", "대상, 기간, 예산과 집행 가능 범위를 확인합니다."],
+              ["03", "진행 안내", "확인된 조건과 측정 기준을 바탕으로 진행합니다."],
+            ].map(([number, title, description]) => (
+              <div key={number} className="rounded-2xl border border-gray-200 bg-white p-5 md:p-6 shadow-sm">
+                <div className="text-sm font-bold text-indigo-600 mb-3">{number}</div>
+                <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -314,7 +143,7 @@ export function FeaturesSection() {
               {
                 title: "바이럴 마케팅",
                 subtitle: "Viral Marketing",
-                description: "실제 리뷰를 통한 리얼 후기로 콘텐츠를 작성하여 소비자들의 신뢰를 쌓을 수 있습니다.",
+                description: "채널과 캠페인 목적에 맞는 콘텐츠 참여 방식을 검토하고 운영 범위를 안내합니다.",
                 gradient: "from-cyan-500/20 to-blue-500/20"
               },
               {
@@ -326,7 +155,7 @@ export function FeaturesSection() {
               {
                 title: "성과 분석",
                 subtitle: "Analytics",
-                description: "캠페인 성과와 사용자 참여를 추적하는 고급 분석 대시보드를 제공합니다.",
+                description: "캠페인별 집행 결과를 협의된 측정 기준에 따라 정리하고 안내합니다.",
                 gradient: "from-amber-500/20 to-orange-500/20"
               }
             ].map((service, index) => (
@@ -462,32 +291,28 @@ export function FeaturesSection() {
           <div className="text-center pt-6 md:pt-8 border-t border-indigo-200">
             <h4 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 text-gray-900 px-4">
               <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                온라인 마케팅 솔루션 NO.1
+                필요한 방식부터 함께 설계합니다
               </span>
             </h4>
             <p className="text-sm md:text-base lg:text-lg text-gray-600 mb-6 md:mb-8 px-4">
-              업종에 따른 특성을 파악하여 함께해주시는 광고주분들이<br className="hidden sm:block" />
-              <span className="text-gray-900 font-semibold">최고의 효과를 보실 수 있게</span> 뷰 커뮤니케이션이 함께합니다 :)
+              업종과 캠페인 목적을 확인해 불필요한 집행을 줄이고<br className="hidden sm:block" />
+              <span className="text-gray-900 font-semibold">진행 가능한 범위와 조건</span>을 분명하게 안내합니다.
             </p>
-            <Button
+            <Button asChild
               size="lg"
               className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white border-0 px-8 py-5 md:px-12 md:py-6 text-sm md:text-base font-semibold shadow-2xl shadow-indigo-500/30 transition-all duration-300 hover:scale-105"
             >
-              무료 상담 신청하기
-              <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+              <a href="#contact">
+                상담 문의하기
+                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+              </a>
             </Button>
           </div>
         </div>
 
-        {/* 실적 통계 - 카운터 애니메이션 */}
-        <div id="solutions" className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-20 scroll-mt-20">
-          <StatCounter number="80-90%" label="수익 공유율" desc="업계 최고 수준" />
-          <StatCounter number="2,000+" label="파트너사" desc="함께 성장하는 기업" />
-          <StatCounter number="99.9%" label="시스템 가용성" desc="안정적인 서비스" />
-        </div>
-
         {/* 왜 뷰 커뮤니케이션인가 */}
         <div 
+          id="solutions"
           ref={whyInfoplanetRef}
           className={`bg-white rounded-2xl md:rounded-3xl p-6 md:p-12 lg:p-16 mb-12 md:mb-20 border border-gray-200 shadow-lg transition-all duration-1000 ${
             isWhyInfoplanetVisible 
@@ -509,8 +334,8 @@ export function FeaturesSection() {
                 icon: "💰"
               },
               {
-                title: "엔터프라이즈급 기술",
-                desc: "대기업 수준의 API 및 통합 솔루션으로 안정적인 서비스 제공",
+                title: "연동 범위 협의",
+                desc: "API나 운영 시스템 연동이 필요하면 범위와 일정을 먼저 검토합니다",
                 icon: "🚀"
               },
               {
@@ -541,28 +366,23 @@ export function FeaturesSection() {
         {/* Final CTA Section - 아이앤뷰 스타일 */}
         <div className="text-center bg-gradient-to-br from-indigo-600 to-purple-600 rounded-2xl md:rounded-3xl p-8 md:p-16 lg:p-20 border border-indigo-500 shadow-2xl">
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 text-white leading-tight px-4">
-            뷰 커뮤니케이션과 함께<br />
+            리워드 광고가 필요하다면<br />
             <span className="text-indigo-100">
-              멈추지 않는 성장
-            </span>을 경험하세요.
+              진행 조건부터 확인하세요.
+            </span>
           </h3>
           <p className="text-sm md:text-base lg:text-lg text-indigo-100 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
-            혁신적인 리워드 마케팅으로 귀사의 비즈니스를 한 단계 업그레이드하세요
+            목적과 예산을 알려주시면 가능한 방식과 확인할 사항을 안내합니다.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
-            <Button
+            <Button asChild
               size="lg"
               className="bg-white text-indigo-600 hover:bg-gray-50 border-0 px-8 py-5 md:px-12 md:py-7 text-base md:text-lg font-semibold shadow-2xl hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
-              회사소개서 다운로드
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="bg-transparent text-white border-white/30 hover:bg-white/10 px-8 py-5 md:px-12 md:py-7 text-base md:text-lg font-semibold transition-all duration-300 hover:scale-105"
-            >
-              문의하기
-              <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+              <a href="#contact">
+                상담 문의하기
+                <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+              </a>
             </Button>
           </div>
         </div>

@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  icons: {
+    icon: "/logos/m_black_nb.png",
+    shortcut: "/logos/m_black_nb.png",
+    apple: "/logos/m_black_nb.png",
+  },
   alternates: {
     canonical: '/',
   },

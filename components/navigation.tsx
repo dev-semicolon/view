@@ -39,7 +39,7 @@ export function Navigation() {
             {[
               { id: "services", label: "서비스" },
               { id: "solutions", label: "솔루션" },
-              { id: "news", label: "소식" },
+              { id: "process", label: "진행 방식" },
               { id: "about", label: "회사 소개" },
               { id: "contact", label: "문의" }
             ].map((item) => (
@@ -71,7 +71,7 @@ export function Navigation() {
               {[
                 { id: "services", label: "서비스" },
                 { id: "solutions", label: "솔루션" },
-                { id: "news", label: "소식" },
+                { id: "process", label: "진행 방식" },
                 { id: "about", label: "회사 소개" },
                 { id: "contact", label: "문의" }
               ].map((item) => (

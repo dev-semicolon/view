@@ -1,22 +1,43 @@
+const steps = [
+  {
+    number: "01",
+    title: "요청 확인",
+    description: "목적, 대상 행동, 기간과 예산을 확인합니다.",
+  },
+  {
+    number: "02",
+    title: "가능 범위 안내",
+    description: "매체와 운영 조건을 검토해 진행 가능 여부를 안내합니다.",
+  },
+  {
+    number: "03",
+    title: "집행과 확인",
+    description: "합의된 기준에 따라 캠페인을 진행하고 결과를 확인합니다.",
+  },
+]
+
 export function TrustSection() {
   return (
-    <section id="news" className="py-12 md:py-24 bg-gray-50 scroll-mt-20">
+    <section id="process" className="py-12 md:py-24 bg-gray-50 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 기술 통합 파트너십 - 간결하게 */}
-        <div className="text-center">
-          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-10 text-gray-900">기술 통합 파트너십</h3>
-          <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-12 border border-gray-200 shadow-lg">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-6 mb-4 md:mb-6">
-              {["AWS", "Google", "Microsoft", "Salesforce", "Oracle", "SAP"].map((partner, index) => (
-                <div key={index} className="h-12 md:h-16 flex items-center justify-center rounded-lg md:rounded-xl bg-gray-50 border border-gray-200 hover:bg-gray-100 hover:border-indigo-300 transition-all group">
-                  <span className="text-xs md:text-sm lg:text-base text-gray-700 group-hover:text-indigo-600 font-semibold transition-colors">{partner}</span>
-                </div>
-              ))}
-            </div>
-            <p className="text-sm md:text-base lg:text-lg text-gray-600">
-              주요 기업 시스템 및 마케팅 도구와의 원활한 통합을 지원합니다
-            </p>
-          </div>
+        <div className="text-center mb-8 md:mb-12">
+          <p className="text-sm font-semibold text-indigo-600 mb-3">진행 방식</p>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">
+            확인되지 않은 약속보다 조건을 먼저 안내합니다
+          </h2>
+          <p className="mt-4 text-sm md:text-base text-gray-600">
+            채널별 정책과 캠페인 조건에 따라 진행 가능 범위와 측정 기준은 달라질 수 있습니다.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+          {steps.map((step) => (
+            <article key={step.number} className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm">
+              <span className="text-sm font-bold text-indigo-600">{step.number}</span>
+              <h3 className="mt-5 text-lg md:text-xl font-bold text-gray-900">{step.title}</h3>
+              <p className="mt-3 text-sm md:text-base leading-relaxed text-gray-600">{step.description}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

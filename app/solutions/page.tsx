@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
@@ -5,6 +6,10 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Target, TrendingUp, Users, BarChart3, CheckCircle } from "lucide-react"
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+}
 
 export default function SolutionsPage() {
   const solutions = [

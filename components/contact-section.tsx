@@ -100,15 +100,15 @@ export function ContactSection() {
             전략적 파트너십
           </h2>
           <p className="text-sm md:text-base lg:text-xl text-gray-600 text-balance max-w-3xl mx-auto leading-relaxed px-4">
-            뷰 커뮤니케이션은 귀사의 마케팅 전략을 혁신하고 비즈니스 목표를 달성하는 데 필요한 모든 리소스를 제공합니다.
+            캠페인 목적과 운영 환경을 확인한 뒤 가능한 리워드 광고 범위와 조건을 안내합니다.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           <div>
-            <h3 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-gray-900">엔터프라이즈 서비스</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-gray-900">기업 캠페인 상담</h3>
             <p className="text-sm md:text-base lg:text-lg text-gray-600 mb-8 md:mb-10 leading-relaxed">
-              뷰 커뮤니케이션의 엔터프라이즈 서비스는 대기업의 복잡한 요구사항을 충족하도록 설계되었습니다. 맞춤형 솔루션과 전담 지원으로 귀사의 비즈니스 성과를 극대화합니다.
+              대상 행동, 운영 기간, 예산과 필요한 연동 범위를 알려주시면 검토 가능한 방식과 진행 절차를 정리해 드립니다.
             </p>
 
             <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">

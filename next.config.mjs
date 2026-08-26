@@ -9,6 +9,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return ["products", "solutions", "pricing", "resources", "company"].map((path) => ({
+      source: `/${path}`,
+      destination: "/",
+      permanent: true,
+    }))
+  },
 }
 
 export default nextConfig
