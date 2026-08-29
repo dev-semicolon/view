@@ -34,9 +34,9 @@ export function HeroSection() {
                 size="lg"
                 className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white border-0 px-6 py-5 md:px-12 md:py-7 text-base md:text-lg font-semibold shadow-2xl shadow-indigo-500/30 transition-all duration-300 hover:scale-105"
               >
-                <a href="#contact">
+                <a href="https://www.selling-planet.com/contact?utm_source=viewcommunication&utm_medium=owned_referral&utm_campaign=business_inquiry_2026&utm_content=hero_contact#inquiry">
                   프로젝트 문의하기
-                  <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                  <ExternalLink className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                 </a>
               </Button>
               <Button
